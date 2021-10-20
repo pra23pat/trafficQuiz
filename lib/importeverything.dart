@@ -10,3 +10,4 @@ export 'question_card.dart';
 export 'option.dart';
 export 'questions.dart';
 export 'package:get/get.dart';
+export 'score_screen.dart';

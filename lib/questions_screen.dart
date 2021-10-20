@@ -5,6 +5,7 @@ class QuestionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    QuestionControllers _controller = Get.put(QuestionControllers());
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -12,7 +13,7 @@ class QuestionScreen extends StatelessWidget {
         elevation: 0,
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: _controller.nextQuestion,
             child: Text("Skip"),
           ),
         ],

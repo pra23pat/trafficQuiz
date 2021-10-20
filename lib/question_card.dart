@@ -5,8 +5,13 @@ class QuestionCard extends StatelessWidget {
 
   final Question question;
 
+
+
   @override
   Widget build(BuildContext context) {
+
+    QuestionControllers _controllers = Get.put(QuestionControllers());
+
     return Container(
       margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
       padding: EdgeInsets.all(kDefaultPadding),
@@ -22,7 +27,9 @@ class QuestionCard extends StatelessWidget {
           ...List.generate(
             question.options.length,
             (index) => Option(
-
+                index: index,
+                text: question.options[index],
+              press: ()=> _controllers.checkAns(question, index),
             ),
           )
         ],

@@ -27,16 +27,16 @@ class Body extends StatelessWidget {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                child: Text.rich(
+                child: Obx(()=>Text.rich(
                   TextSpan(
-                    text: "Question 1",
+                    text: "Question ${_questionControllers.questionNumber.value}",
                     style: Theme.of(context)
                         .textTheme
                         .headline4!
                         .copyWith(color: Colors.grey),
                     children: [
                       TextSpan(
-                        text: "/5",
+                        text: "/${_questionControllers.questions.length}",
                         style: Theme.of(context)
                             .textTheme
                             .headline5!
@@ -44,7 +44,7 @@ class Body extends StatelessWidget {
                       )
                     ],
                   ),
-                ),
+                )),
               ),
               Divider(
                 thickness: 1.5,
@@ -54,6 +54,9 @@ class Body extends StatelessWidget {
               ),
               Expanded(
                 child: PageView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  onPageChanged: _questionControllers.updateQuestionNum,
+                  controller: _questionControllers.pageController,
                     itemCount: _questionControllers.questions.length,
                     itemBuilder: (context, index) => QuestionCard(question: _questionControllers.questions[index],)),
               ),

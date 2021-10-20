@@ -9,11 +9,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Traffic Sign Quiz',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: QuestionScreen(),
+      home: WelcomeScreen(),
     );
   }
 }

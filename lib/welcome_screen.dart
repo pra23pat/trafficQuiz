@@ -21,7 +21,7 @@ class WelcomeScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline4!.copyWith(
                       color: Colors.white,fontSize: 45, fontWeight: FontWeight.bold),
                 ),
-                Text("Please enter your name :"),
+                Text("Identify the Name of Signs", style: TextStyle(fontSize: 25),),
                 Spacer(flex: 1,),
                 TextField(
                   decoration: InputDecoration(
@@ -35,8 +35,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 Spacer(flex: 1,),
                 InkWell(
-                  onTap: () {
-                  },
+                  onTap: () => Get.to(QuestionScreen()),
                   child: Container(
                     width: double.infinity,
                     alignment: Alignment.center,
